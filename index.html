@@ -11,19 +11,8 @@
   <body>
     <h1>Hello React!</h1>
     <div id="app"></div>
-    <script type="text/babel">
-      const day = 'Monday'
-      function App() {
-        return (
-          <div>
-            <h2>Happy {new Date().toLocaleDateString('en-AU', { weekday: 'long' })}!</h2>
-            <p>
-              I hope you have a <em>great</em> day.
-            </p>
-          </div>
-        )
-      }
-
+    <script type="text/babel" data-type="module">
+      import { App } from './input.jsx'
       const app = document.getElementById('app')
       const root = ReactDOM.createRoot(app)
       root.render(<App />)
