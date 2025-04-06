@@ -4,8 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>React from scratch</title>
+    <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.js"></script>
   </head>
   <body>
     <h1>Hello React!</h1>
+    <div id="app"></div>
+    <script type="text/babel">
+      const day = 'Monday'
+      function App() {
+        return (
+          <div>
+            <h2>Happy {new Date().toLocaleDateString('en-AU', { weekday: 'long' })}!</h2>
+            <p>
+              I hope you have a <em>great</em> day.
+            </p>
+          </div>
+        )
+      }
+
+      const app = document.getElementById('app')
+      const root = ReactDOM.createRoot(app)
+      root.render(<App />)
+    </script>
   </body>
 </html>
