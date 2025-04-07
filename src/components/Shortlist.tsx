@@ -1,15 +1,14 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { Puppy } from "../types";
-import { Heart, X } from "lucide-react";
+import { Heart, Loader, LoaderCircle, X } from "lucide-react";
+import { toggleLikedStatus } from "../queries";
 
 export function Shortlist({
   puppies,
-  liked,
-  setLiked,
+  setPuppies,
 }: {
   puppies: Puppy[];
-  liked: Puppy["id"][];
-  setLiked: Dispatch<SetStateAction<Puppy["id"][]>>;
+  setPuppies: Dispatch<SetStateAction<Puppy[]>>;
 }) {
   return (
     <div>
@@ -19,7 +18,7 @@ export function Shortlist({
       </h2>
       <ul className="mt-4 flex flex-wrap gap-4">
         {puppies
-          .filter((pup) => liked.includes(pup.id))
+          .filter((pup) => pup.likedBy.includes(1))
           .map((puppy) => (
             <li
               key={puppy.id}
@@ -33,15 +32,42 @@ export function Shortlist({
                 src={puppy.imageUrl}
               />
               <p className="px-3 text-sm text-slate-800">{puppy.name}</p>
-              <button
-                onClick={() => setLiked(liked.filter((id) => id !== puppy.id))}
-                className="group h-full border-l border-slate-100 px-2 hover:bg-slate-100"
-              >
-                <X className="size-4 stroke-slate-400 group-hover:stroke-red-400" />
-              </button>
+              <DeleteButton id={puppy.id} setPuppies={setPuppies} />
             </li>
           ))}
       </ul>
     </div>
+  );
+}
+
+function DeleteButton({
+  id,
+  setPuppies,
+}: {
+  id: Puppy["id"];
+  setPuppies: Dispatch<SetStateAction<Puppy[]>>;
+}) {
+  const [pending, setPending] = useState(false);
+  return (
+    <button
+      onClick={async () => {
+        setPending(true);
+        const updatedPuppy = await toggleLikedStatus(id);
+        setPuppies((prevPups) => {
+          return prevPups.map((puppy) =>
+            puppy.id === updatedPuppy.id ? updatedPuppy : puppy,
+          );
+        });
+        setPending(false);
+      }}
+      className="group h-full border-l border-slate-100 px-2 hover:bg-slate-100"
+      disabled={pending}
+    >
+      {pending ? (
+        <LoaderCircle className="size-4 animate-spin stroke-slate-300" />
+      ) : (
+        <X className="size-4 stroke-slate-400 group-hover:stroke-red-400" />
+      )}
+    </button>
   );
 }
