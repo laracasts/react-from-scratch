@@ -29,7 +29,7 @@ export function App() {
         >
           <Suspense
             fallback={
-              <div className="mt-12 bg-white p-6 shadow ring ring-black/5">
+              <div className="mt-12 grid h-48 place-items-center">
                 <LoaderCircle className="animate-spin stroke-slate-300" />
               </div>
             }
@@ -46,8 +46,6 @@ const puppyPromise = getPuppies();
 
 function Main() {
   const apiPuppies = use(puppyPromise);
-
-  const [liked, setLiked] = useState<Puppy["id"][]>([1, 3]);
   const [searchQuery, setSearchQuery] = useState("");
   const [puppies, setPuppies] = useState<Puppy[]>(apiPuppies);
 
