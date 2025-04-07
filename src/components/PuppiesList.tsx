@@ -1,4 +1,6 @@
-export function PuppiesList({ puppies }) {
+import { type Puppy } from "../types";
+
+export function PuppiesList({ puppies }: { puppies: Puppy[] }) {
   return (
     <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {puppies.map((puppy) => (
@@ -8,7 +10,11 @@ export function PuppiesList({ puppies }) {
   );
 }
 
-function PuppyCard({ puppy }) {
+type PuppyCardProps = {
+  puppy: Puppy;
+};
+
+function PuppyCard({ puppy }: PuppyCardProps) {
   return (
     <li
       key={puppy.id}
@@ -23,7 +29,7 @@ function PuppyCard({ puppy }) {
         <div className="flex items-center gap-2">
           <p className="font-semibold">{puppy.name}</p>
           <span className="text-slate-300">·</span>
-          <p className="text-slate-500">{puppy.trait}</p>
+          <p className="text-slate-500">{puppy.vibe}</p>
         </div>
         <button>
           <svg

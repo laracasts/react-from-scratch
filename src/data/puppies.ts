@@ -1,38 +1,40 @@
-export const puppies = [
+import { Puppy } from "../types";
+
+export const puppies: Puppy[] = [
   {
     id: 1,
     name: "Frisket",
-    trait: "Mother of all pups",
+    vibe: "Mother of all pups",
     imagePath: "/images/1.jpg",
   },
   {
     id: 2,
     name: "Chase",
-    trait: "Very good boi",
+    vibe: "Very good boi",
     imagePath: "/images/2.jpg",
   },
   {
     id: 3,
     name: "Leia",
-    trait: "Enjoys naps",
+    vibe: "Enjoys naps",
     imagePath: "/images/3.jpg",
   },
   {
     id: 4,
     name: "Pupi",
-    trait: "Loves cheese",
+    vibe: "Loves cheese",
     imagePath: "/images/4.jpg",
   },
   {
     id: 5,
     name: "Russ",
-    trait: "Ready to save the world",
+    vibe: "Ready to save the world",
     imagePath: "/images/5.jpg",
   },
   {
     id: 6,
     name: "Yoko",
-    trait: "Ready for anything",
+    vibe: "Ready for anything",
     imagePath: "/images/6.jpg",
   },
 ];
