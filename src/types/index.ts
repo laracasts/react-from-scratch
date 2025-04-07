@@ -1,6 +1,11 @@
+type User = {
+  id: number;
+};
+
 export type Puppy = {
   id: number;
   name: string;
-  vibe: string;
-  imagePath: string;
+  trait: string;
+  imageUrl: string;
+  likedBy: User["id"][];
 };

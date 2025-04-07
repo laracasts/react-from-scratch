@@ -19,8 +19,9 @@ export function NewPuppyForm({
           const newPuppy: Puppy = {
             id: puppies.length + 1,
             name: formData.get("name") as string,
-            vibe: formData.get("trait") as string,
-            imagePath: `/images/${Math.floor(Math.random() * 16) + 7}.jpg`,
+            trait: formData.get("trait") as string,
+            imageUrl: `/images/${Math.floor(Math.random() * 16) + 7}.jpg`,
+            likedBy: [],
           };
 
           setPuppies([...puppies, newPuppy]);
