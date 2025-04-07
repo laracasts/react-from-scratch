@@ -13,7 +13,7 @@ export function PuppiesList() {
             <span className="text-slate-300">·</span>
             <p className="text-slate-500">Mother of all pups</p>
           </div>
-          <button>
+          <button className="group">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width={24}
@@ -43,7 +43,7 @@ export function PuppiesList() {
             <span className="text-slate-300">·</span>
             <p className="text-slate-500">Very good boi</p>
           </div>
-          <button>
+          <button className="group">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width={24}
@@ -73,7 +73,7 @@ export function PuppiesList() {
             <span className="text-slate-300">·</span>
             <p className="text-slate-500">Enjoys naps</p>
           </div>
-          <button>
+          <button className="group">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width={24}
@@ -103,7 +103,7 @@ export function PuppiesList() {
             <span className="text-slate-300">·</span>
             <p className="text-slate-500">Loves cheese</p>
           </div>
-          <button>
+          <button className="group">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width={24}
@@ -133,7 +133,7 @@ export function PuppiesList() {
             <span className="text-slate-300">·</span>
             <p className="text-slate-500">Ready to save the world</p>
           </div>
-          <button>
+          <button className="group">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width={24}
@@ -163,7 +163,7 @@ export function PuppiesList() {
             <span className="text-slate-300">·</span>
             <p className="text-slate-500">Ready for anything</p>
           </div>
-          <button>
+          <button className="group">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width={24}
