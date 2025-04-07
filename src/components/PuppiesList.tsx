@@ -31,7 +31,7 @@ function PuppyCard({ puppy }: PuppyCardProps) {
           <span className="text-slate-300">·</span>
           <p className="text-slate-500">{puppy.vibe}</p>
         </div>
-        <button>
+        <button className="group">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width={24}
