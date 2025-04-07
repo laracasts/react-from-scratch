@@ -1,1 +1,5 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+
+@theme {
+  --default-font-family: "Inter", sans-serif;
+}
